@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7to8dm8cnun1"]
+
+[ext_resource type="Script" uid="uid://br8jn0dhb17wk" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://7oxr3k147cnm" path="res://debug/PerfOverlay.gd" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://dxh0v7v2dt0l1" path="res://images/background_forest.png" id="2_h2yge"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ig7tw")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 646.0
+mouse_filter = 2
+texture = ExtResource("2_h2yge")
+expand_mode = 2
+
+[node name="PerfOverlay" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.806
+anchor_top = 0.172
+anchor_right = 0.806
+anchor_bottom = 0.172
+offset_left = -30.5121
+offset_top = -11.456
+offset_right = 19.4879
+offset_bottom = 36.544
+script = ExtResource("2_0xm2m")
+
+[node name="MainTabs" type="TabContainer" parent="."]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 649.0
+current_tab = 1
+
+[node name="PracticeTab" type="Control" parent="MainTabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainTabs/PracticeTab"]
+layout_mode = 2
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 302.0
+offset_bottom = 658.0
+
+[node name="ManaLabel" type="Label" parent="MainTabs/PracticeTab/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="ProductionLabel" type="Label" parent="MainTabs/PracticeTab/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainTabs/PracticeTab/VBoxContainer"]
+custom_minimum_size = Vector2(300, 600)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SpellGrid" type="GridContainer" parent="MainTabs/PracticeTab/VBoxContainer/ScrollContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+
+[node name="DruidTab" type="Control" parent="MainTabs"]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VboxContainer" type="VBoxContainer" parent="MainTabs/DruidTab"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 89.0
+
+[node name="ManaLabel" type="Label" parent="MainTabs/DruidTab/VboxContainer"]
+layout_mode = 2
+
+[node name="EssenceLabel" type="Label" parent="MainTabs/DruidTab/VboxContainer"]
+layout_mode = 2
+
+[node name="TickTimer" type="Timer" parent="."]
+
+[node name="DruidPopup" type="AcceptDialog" parent="."]
+title = "New School Unlocked!"
+
+[connection signal="timeout" from="TickTimer" to="." method="_on_tick_timer_timeout"]
