@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3ib2u0dkimjs"]
+
+[ext_resource type="Script" uid="uid://c32ewvvixu5y0" path="res://ui/SpellButton.gd" id="1_ht1t2"]
+
+[node name="SpellButton" type="Button"]
+custom_minimum_size = Vector2(180, 120)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ht1t2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.031
+anchor_bottom = 0.055
+offset_right = 14.288
+offset_bottom = 64.36
+alignment = 1
+
+[node name="NameLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 0
+
+[node name="CostLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 13
+
+[node name="CountLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+
+[node name="InfoLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
